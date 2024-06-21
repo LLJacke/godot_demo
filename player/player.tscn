@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn8b7jnoa6ikg"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_k448e"]
+[ext_resource type="Texture2D" uid="uid://chr4236sup0m6" path="res://player/robot.webp" id="2_n00lr"]
+[ext_resource type="Script" path="res://player/Gun.gd" id="3_x3m0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvpja"]
+size = Vector2(38, 59)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_k448e")
+shoot_radius = 1100
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_n00lr")
+hframes = 8
+vframes = 8
+frame = 35
+
+[node name="Gun" type="Marker2D" parent="Sprite2D"]
+position = Vector2(16, -3)
+script = ExtResource("3_x3m0v")
+
+[node name="Cooldown" type="Timer" parent="Sprite2D/Gun"]
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qvpja")
