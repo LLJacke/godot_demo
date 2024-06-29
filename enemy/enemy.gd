@@ -1,24 +1,29 @@
 class_name Enemy extends CharacterBody2D
 
-
 enum State {
 	WALKING,
+	ATTACK,
 	DEAD,
 }
 
-const WALK_SPEED = -22.0
+const WALK_SPEED = -100
 
 var _state := State.WALKING
+
+@export var hp_limit = 100
 
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @onready var sprite := $Sprite2D as Sprite2D
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var cur_hp = hp_limit
 
 
 func _physics_process(delta: float) -> void:
 	#motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	if _state == State.WALKING and velocity.is_zero_approx():
 		velocity.x = WALK_SPEED
+	elif _state == State.ATTACK:
+		velocity = Vector2.ZERO
 
 	move_and_slide()
 	#move_and_collide(velocity * delta)
@@ -36,6 +41,8 @@ func _physics_process(delta: float) -> void:
 func destroy() -> void:
 	_state = State.DEAD
 	velocity = Vector2.ZERO
+	collision_layer = 0
+	collision_mask = 0
 
 
 func get_new_animation() -> StringName:
@@ -48,3 +55,13 @@ func get_new_animation() -> StringName:
 	else:
 		animation_new = &"destroy"
 	return animation_new
+
+
+func change_hp(diff) -> void:
+	cur_hp += diff
+	if cur_hp <= 0:
+		destroy()
+
+
+func set_attack_state() -> void:
+	_state = State.ATTACK

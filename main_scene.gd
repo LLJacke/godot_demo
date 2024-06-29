@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player := $Player
 @onready var enemy_creator := $EnemyCreator
+@onready var attack_area := $AttackArea
 
 @export var shoot_radius = 400
 
@@ -12,16 +13,16 @@ func _ready():
 	enemy_creator.position = Vector2(get_viewport_rect().size.x - 50, get_viewport_rect().size.y/2)
 
 func _process(delta):
-	var arr = get_shoot_node(shoot_radius)
-	#if arr.size() > 0:
-		#var dist = 9999999
-		#var target_enemy
-		#for ene in arr:
-			#var pos = ene.collider.global_position
-			#if pos.distance_to(global_position) < dist:
-				#dist = pos.distance_to(global_position)
-				#target_enemy = ene.collider
-		#player.gun.shoot((target_enemy.global_position - player.global_position).normalized())
+	var arr = attack_area.get_enemy_in_area()
+	if arr.size() > 0:
+		var dist = 9999999
+		var target_enemy
+		for ene in arr:
+			var pos = ene.global_position
+			if pos.x - player.global_position.x < dist:
+				dist = pos.x - player.global_position.x
+				target_enemy = ene
+		player.gun.shoot((target_enemy.global_position - player.global_position).normalized())
 
 func get_shoot_node(radius):
 	circle_shape.radius = radius

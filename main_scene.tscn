@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://brk55xpvaeift"]
+[gd_scene load_steps=8 format=3 uid="uid://brk55xpvaeift"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_44xnb"]
 [ext_resource type="PackedScene" uid="uid://dn8b7jnoa6ikg" path="res://player/player.tscn" id="2_68s7c"]
 [ext_resource type="Script" path="res://EnemyCreator.gd" id="3_cu30d"]
+[ext_resource type="Script" path="res://AttackArea.gd" id="4_3rg60"]
+[ext_resource type="Script" path="res://DefendArea.gd" id="5_m2nfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_10dya"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy4x3"]
+size = Vector2(80, 1000)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_44xnb")
@@ -16,3 +24,28 @@ script = ExtResource("3_cu30d")
 
 [node name="Cooldown" type="Timer" parent="EnemyCreator"]
 one_shot = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(0, 320)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_3rg60")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(500, 1)
+shape = SubResource("RectangleShape2D_10dya")
+
+[node name="DefendArea" type="Area2D" parent="."]
+position = Vector2(0, 320)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("5_m2nfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefendArea"]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_iy4x3")
+debug_color = Color(0.973652, 0, 0.432453, 0.42)
+
+[connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="AttackArea" method="_on_body_exited"]
+[connection signal="body_entered" from="DefendArea" to="DefendArea" method="_on_body_entered"]

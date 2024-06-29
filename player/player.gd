@@ -31,15 +31,15 @@ func _physics_process(delta):
 
 func _process(delta):
 	var arr = get_shoot_node(shoot_radius)
-	if arr.size() > 0:
-		var dist = 9999999
-		var target_enemy
-		for ene in arr:
-			var pos = ene.collider.global_position
-			if pos.distance_to(global_position) < dist:
-				dist = pos.distance_to(global_position)
-				target_enemy = ene.collider
-		gun.shoot((target_enemy.global_position - global_position).normalized())
+	#if arr.size() > 0:
+		#var dist = 9999999
+		#var target_enemy
+		#for ene in arr:
+			#var pos = ene.collider.global_position
+			#if pos.distance_to(global_position) < dist:
+				#dist = pos.distance_to(global_position)
+				#target_enemy = ene.collider
+		#gun.shoot((target_enemy.global_position - global_position).normalized())
 
 func get_shoot_node(radius):
 	circle_shape.radius = radius
