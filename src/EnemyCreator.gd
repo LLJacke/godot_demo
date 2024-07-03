@@ -19,7 +19,7 @@ func _process(delta):
 func create_enemy():
 	var enemy := ENEMY_SCENE.instantiate() as Enemy
 	enemy.global_position = global_position
-	enemy.global_position.y = randf_range(30, screen_size.y - 30)
+	enemy.global_position.y = randf_range(100, screen_size.y - 30)
 	#enemy.linear_velocity = Vector2(-1 * ENEMY_VELOCITY, 0.0)
 
 	enemy.set_as_top_level(true)

@@ -14,6 +14,7 @@ var _state := State.WALKING
 
 @export var hp_limit = 100
 @export var score = 50
+@export var damage = 60
 
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @onready var sprite := $Sprite2D as Sprite2D
@@ -71,3 +72,6 @@ func change_hp(diff) -> void:
 
 func set_attack_state() -> void:
 	_state = State.ATTACK
+
+func do_attack() -> void:
+	GameData.send_change_hp(-damage)

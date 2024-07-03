@@ -13,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x0ai2")
+player_hp = 2000
 
 [node name="lb_score" type="Label" parent="."]
 layout_mode = 0
