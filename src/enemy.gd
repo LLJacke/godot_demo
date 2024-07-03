@@ -1,5 +1,7 @@
 class_name Enemy extends CharacterBody2D
 
+signal add_score(add)
+
 enum State {
 	WALKING,
 	ATTACK,
@@ -11,6 +13,7 @@ const WALK_SPEED = -100
 var _state := State.WALKING
 
 @export var hp_limit = 100
+@export var score = 50
 
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @onready var sprite := $Sprite2D as Sprite2D
@@ -43,6 +46,7 @@ func destroy() -> void:
 	velocity = Vector2.ZERO
 	collision_layer = 0
 	collision_mask = 0
+	GameData.send_add_score(score)
 
 
 func get_new_animation() -> StringName:
@@ -52,6 +56,8 @@ func get_new_animation() -> StringName:
 			animation_new = &"idle"
 		else:
 			animation_new = &"walk"
+	elif _state == State.ATTACK:
+		animation_new = &"attack"
 	else:
 		animation_new = &"destroy"
 	return animation_new

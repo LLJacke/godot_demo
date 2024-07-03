@@ -1,8 +1,8 @@
 extends Node2D
 
 const ENEMY_VELOCITY = 30
-const ENEMY_SCENE = preload("res://enemy/enemy.tscn")
-const PLAYER_SCENE = preload("res://player/player.tscn")
+const ENEMY_SCENE = preload("res://resource/enemy/enemy.tscn")
+const PLAYER_SCENE = preload("res://resource/player/player.tscn")
 
 var enemy_list = []
 
@@ -19,7 +19,7 @@ func _process(delta):
 func create_enemy():
 	var enemy := ENEMY_SCENE.instantiate() as Enemy
 	enemy.global_position = global_position
-	enemy.global_position.y = randf_range(0, screen_size.y)
+	enemy.global_position.y = randf_range(30, screen_size.y - 30)
 	#enemy.linear_velocity = Vector2(-1 * ENEMY_VELOCITY, 0.0)
 
 	enemy.set_as_top_level(true)
