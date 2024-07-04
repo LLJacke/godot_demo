@@ -16,13 +16,13 @@ var circle_shape := CircleShape2D.new()
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction := Input.get_axis("move_left" + action_suffix, "move_right" + action_suffix) * WALK_SPEED
-	#if direction:
-		#velocity.y = direction
-	#else:
-		#velocity.y = move_toward(velocity.y, 0, SPEED)
+	var direction := Input.get_axis("move_left" + action_suffix, "move_right" + action_suffix) * WALK_SPEED
+	if direction:
+		velocity.y = direction
+	else:
+		velocity.y = move_toward(velocity.y, 0, SPEED)
 #
-	#move_and_slide()
+	move_and_slide()
 	
 	#if Input.is_action_just_pressed("shoot" + action_suffix):
 		#gun.shoot(sprite.scale.x)

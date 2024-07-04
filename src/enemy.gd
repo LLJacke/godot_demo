@@ -8,7 +8,7 @@ enum State {
 	DEAD,
 }
 
-const WALK_SPEED = -100
+const WALK_SPEED = -60
 
 var _state := State.WALKING
 

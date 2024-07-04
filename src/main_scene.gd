@@ -14,15 +14,16 @@ func _ready():
 
 func _process(delta):
 	var arr = attack_area.get_enemy_in_area()
-	if arr.size() > 0:
-		var dist = 9999999
-		var target_enemy
-		for ene in arr:
-			var pos = ene.global_position
-			if pos.x - player.global_position.x < dist:
-				dist = pos.x - player.global_position.x
-				target_enemy = ene
-		player.gun.shoot((target_enemy.global_position - player.global_position).normalized())
+	#if arr.size() > 0:
+		#var dist = 9999999
+		#var target_enemy
+		#for ene in arr:
+			#var pos = ene.global_position
+			#if pos.x - player.global_position.x < dist:
+				#dist = pos.x - player.global_position.x
+				#target_enemy = ene
+		#player.gun.shoot((target_enemy.global_position - player.global_position).normalized())
+	player.gun.shoot()
 
 func get_shoot_node(radius):
 	circle_shape.radius = radius

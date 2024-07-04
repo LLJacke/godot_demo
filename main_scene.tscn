@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://brk55xpvaeift"]
+[gd_scene load_steps=10 format=3 uid="uid://brk55xpvaeift"]
 
 [ext_resource type="Script" path="res://src/main_scene.gd" id="1_44xnb"]
 [ext_resource type="PackedScene" uid="uid://dn8b7jnoa6ikg" path="res://resource/player/player.tscn" id="2_68s7c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/AttackArea.gd" id="4_3rg60"]
 [ext_resource type="Script" path="res://src/DefendArea.gd" id="5_m2nfs"]
 [ext_resource type="PackedScene" uid="uid://dl0guil221unw" path="res://resource/ui/MainUI.tscn" id="6_hlquv"]
+[ext_resource type="PackedScene" uid="uid://hao7xm141322" path="res://resource/ui/ChooseBuff.tscn" id="6_tyl4q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10dya"]
 size = Vector2(1000, 1000)
@@ -46,6 +47,8 @@ script = ExtResource("5_m2nfs")
 position = Vector2(40, 0)
 shape = SubResource("RectangleShape2D_iy4x3")
 debug_color = Color(0.973652, 0, 0.432453, 0.42)
+
+[node name="ChooseBuff" parent="." instance=ExtResource("6_tyl4q")]
 
 [node name="MainUi" parent="." instance=ExtResource("6_hlquv")]
 
