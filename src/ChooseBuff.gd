@@ -1,6 +1,7 @@
 extends Control
 
 var btns = []
+var cur_buffs = {}
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -13,17 +14,19 @@ func _ready():
 		btn.set_size(Vector2(192, 256))
 		btn.position = center + Vector2(288*(i-1), 0) - Vector2(192, 256)/2
 		add_child(btn)
-		btn.pressed.connect(on_btn_press.bind(btn))
+		btn.pressed.connect(on_btn_press.bind(btn, i))
 		btns.append(btn)
 		
 
 func set_buffs(buffs):
 	if buffs and buffs.size() == 3:
 		for i in btns.size():
-			btns[i].text = buffs[i]
+			btns[i].text = BuffManager.get_buff_txt(buffs[i])
+			cur_buffs[i] = buffs[i]
 
 
-func on_btn_press(btn):
+func on_btn_press(btn, idx):
 	print(btn.text)
+	BuffManager.gain_buff(cur_buffs[idx])
 	visible = false
 	get_tree().paused = false

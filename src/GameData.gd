@@ -25,6 +25,6 @@ func send_change_hp(add):
 	emit_signal("change_hp", add)
 
 func check_score(score):
-	if score >= level_liswt[player_level-1]:
+	if score >= level_list[player_level-1]:
 		player_level += 1
 		emit_signal("show_buffs")

@@ -22,7 +22,7 @@ func create_enemy():
 	enemy.global_position.y = randf_range(100, screen_size.y - 30)
 	#enemy.linear_velocity = Vector2(-1 * ENEMY_VELOCITY, 0.0)
 
-	enemy.set_as_top_level(true)
+	#enemy.set_as_top_level(true)
 	get_parent().add_child(enemy)
 	
 	

@@ -44,5 +44,5 @@ func get_shoot_node(radius):
 
 func _on_show_buffs():
 	get_tree().paused = true
-	choose_buff.set_buffs(BuffManager.get_random_buffs())
+	choose_buff.set_buffs(BuffManager.get_random_buffs(3))
 	choose_buff.visible = true

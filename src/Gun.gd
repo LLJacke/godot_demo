@@ -22,5 +22,6 @@ func shoot(direction: Vector2 = Vector2(1,0)) -> bool:
 	bullet.set_as_top_level(true)
 	add_child(bullet)
 	#sound_shoot.play()
+	timer.wait_time = 100 / PlayerInfo.shoot_speed
 	timer.start()
 	return true
