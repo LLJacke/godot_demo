@@ -49,6 +49,7 @@ shape = SubResource("RectangleShape2D_iy4x3")
 debug_color = Color(0.973652, 0, 0.432453, 0.42)
 
 [node name="ChooseBuff" parent="." instance=ExtResource("6_tyl4q")]
+visible = false
 
 [node name="MainUi" parent="." instance=ExtResource("6_hlquv")]
 

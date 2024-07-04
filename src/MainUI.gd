@@ -19,6 +19,8 @@ func _ready():
 func _on_add_score(score):
 	player_score += score
 	lb_score.text = 'score: %d' % player_score
+	
+	GameData.check_score(player_score)
 
 func _on_change_hp(hp):
 	player_hp += hp
