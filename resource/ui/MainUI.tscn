@@ -46,3 +46,12 @@ offset_right = 611.0
 offset_bottom = 379.0
 text = "菜"
 label_settings = SubResource("LabelSettings_ldgh4")
+
+[node name="btn_reset" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 436.0
+offset_top = 390.0
+offset_right = 686.0
+offset_bottom = 510.0
+text = "重开"

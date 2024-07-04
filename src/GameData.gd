@@ -5,7 +5,8 @@ signal change_hp
 signal show_buffs
 
 var level_list = [
-	200, 500, 1000, 2000
+	100, 300, 600, 1000, 1500, 
+	2200, 3400, 5000, 7000, 1000
 ]
 var player_level = 1
 
@@ -27,4 +28,5 @@ func send_change_hp(add):
 func check_score(score):
 	if score >= level_list[player_level-1]:
 		player_level += 1
+		player_level = min(player_level, level_list.size())
 		emit_signal("show_buffs")

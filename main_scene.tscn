@@ -25,7 +25,18 @@ position = Vector2(37, 278)
 script = ExtResource("3_cu30d")
 
 [node name="Cooldown" type="Timer" parent="EnemyCreator"]
+wait_time = 1.5
 one_shot = true
+
+[node name="LevelUpTimer" type="Timer" parent="EnemyCreator"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="EndTimer" type="Timer" parent="EnemyCreator"]
+wait_time = 180.0
+one_shot = true
+autostart = true
 
 [node name="AttackArea" type="Area2D" parent="."]
 position = Vector2(0, 320)

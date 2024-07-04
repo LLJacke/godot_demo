@@ -31,9 +31,9 @@ func get_buff_txt(buff):
 
 func gain_buff(buff):
 	if buff == BUFF_TYPE.SHOOT_FAST:
-		PlayerInfo.shoot_speed += 50
+		PlayerInfo.shoot_speed += 20
 	elif buff == BUFF_TYPE.ADD_DAMAGE:
-		PlayerInfo.damage += 50
+		PlayerInfo.damage += 40
 	elif buff == BUFF_TYPE.ADD_HP:
 		PlayerInfo.hp += 200
 	elif buff == BUFF_TYPE.MOVE_FAST:

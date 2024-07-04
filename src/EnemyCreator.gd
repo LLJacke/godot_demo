@@ -7,6 +7,7 @@ const PLAYER_SCENE = preload("res://resource/player/player.tscn")
 var enemy_list = []
 
 @onready var timer := $Cooldown as Timer
+@onready var timer2 := $LevelUpTimer as Timer
 @onready var screen_size = get_viewport_rect().size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,4 +35,7 @@ func create_enemy():
 	#player.set_as_top_level(true)
 	#get_parent().add_child(player)
 	
+	if timer2.is_stopped():
+		timer.wait_time = 0.5
 	timer.start()
+	

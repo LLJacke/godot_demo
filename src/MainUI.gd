@@ -3,6 +3,7 @@ extends Control
 @onready var lb_score = $lb_score as Label
 @onready var lb_hp = $lb_player_hp as Label
 @onready var lb_lose = $lb_lose as Label
+@onready var btn_reset = $btn_reset as Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,3 +27,6 @@ func _on_change_hp(hp):
 	if PlayerInfo.hp <= 0:
 		get_tree().paused = true
 		lb_lose.visible = true
+
+func _on_btn_reset():
+	pass
