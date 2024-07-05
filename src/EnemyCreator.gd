@@ -8,20 +8,33 @@ var enemy_list = []
 
 @onready var timer := $Cooldown as Timer
 @onready var timer2 := $LevelUpTimer as Timer
+@onready var end_timer := $EndTimer as Timer
 @onready var screen_size = get_viewport_rect().size
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if not timer.is_stopped():
-		return false
-	create_enemy()
+func _ready():
+	GameData.connect("enemy_destroy", _on_enemy_destroy)
 
+func _process(delta):
+	if end_timer.is_stopped():
+		timer.stop()
+		if enemy_list.is_empty():
+			GameData.send_game_win()
+	else:
+		if not timer.is_stopped():
+			return false
+		create_enemy()
+		
+		if timer2.is_stopped():
+			timer.wait_time = 0.7
+		timer.start()
+	
 
 func create_enemy():
 	var enemy := ENEMY_SCENE.instantiate() as Enemy
 	enemy.global_position = global_position
 	enemy.global_position.y = randf_range(100, screen_size.y - 30)
 	#enemy.linear_velocity = Vector2(-1 * ENEMY_VELOCITY, 0.0)
+	enemy_list.append(enemy)
 
 	#enemy.set_as_top_level(true)
 	get_parent().add_child(enemy)
@@ -35,7 +48,6 @@ func create_enemy():
 	#player.set_as_top_level(true)
 	#get_parent().add_child(player)
 	
-	if timer2.is_stopped():
-		timer.wait_time = 0.5
-	timer.start()
-	
+
+func _on_enemy_destroy(enemy):
+	enemy_list.erase(enemy)

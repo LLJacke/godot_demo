@@ -1,7 +1,5 @@
 class_name Enemy extends CharacterBody2D
 
-signal add_score(add)
-
 enum State {
 	WALKING,
 	ATTACK,
@@ -48,6 +46,7 @@ func destroy() -> void:
 	collision_layer = 0
 	collision_mask = 0
 	GameData.send_add_score(score)
+	GameData.send_destroy_enemy(self)
 
 
 func get_new_animation() -> StringName:
