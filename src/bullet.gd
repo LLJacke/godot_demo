@@ -8,9 +8,9 @@ func destroy() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body is Enemy:
+	if body is EnemyBase:
 		linear_velocity = Vector2(0,0)
-		(body as Enemy).change_hp(-PlayerInfo.damage)
+		(body as EnemyBase).change_hp(-PlayerInfo.damage)
 		
 		collision_layer = 0
 		collision_mask = 0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b5in73f6ot1lu"]
 
-[ext_resource type="Script" path="res://src/Enemy.gd" id="1_lbmaw"]
+[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_rqnhc"]
 [ext_resource type="Texture2D" uid="uid://dysckovoyh3pk" path="res://resource/enemy/enemy.webp" id="2_4j3q2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j7sb"]
@@ -159,7 +159,7 @@ _data = {
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
-script = ExtResource("1_lbmaw")
+script = ExtResource("1_rqnhc")
 hp_limit = 300
 score = 100
 damage = 100

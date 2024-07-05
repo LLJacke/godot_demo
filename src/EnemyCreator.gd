@@ -34,7 +34,7 @@ func create_enemy():
 	var clazz = ENEMY_SCENE
 	if randf() < 0.1:
 		clazz = ENEMY_SCENE_2
-	var enemy = clazz.instantiate() as Enemy
+	var enemy = clazz.instantiate() as EnemyBase
 	enemy.global_position = global_position
 	enemy.global_position.y = randf_range(100, screen_size.y - 30)
 	#enemy.linear_velocity = Vector2(-1 * ENEMY_VELOCITY, 0.0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dw1pavn2rbryf"]
 
-[ext_resource type="Script" path="res://src/Enemy.gd" id="1_nbqhs"]
+[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_s7kal"]
 [ext_resource type="Texture2D" uid="uid://dysckovoyh3pk" path="res://resource/enemy/enemy.webp" id="2_0i8aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j7sb"]
@@ -159,7 +159,7 @@ _data = {
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
-script = ExtResource("1_nbqhs")
+script = ExtResource("1_s7kal")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_0i8aa")
