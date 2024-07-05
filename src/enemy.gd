@@ -20,7 +20,7 @@ var _state := State.WALKING
 @onready var cur_hp = hp_limit
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	if _state == State.WALKING and velocity.is_zero_approx():
 		velocity.x = WALK_SPEED

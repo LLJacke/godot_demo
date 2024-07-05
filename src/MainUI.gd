@@ -13,7 +13,7 @@ func _ready():
 	GameData.connect("game_win", _on_game_win)
 	
 
-func _process(delta):
+func _process(_delta):
 	lb_score.text = 'score: %d' % PlayerInfo.score
 	lb_hp.text = 'hp: %d' % PlayerInfo.hp
 	

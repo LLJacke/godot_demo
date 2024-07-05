@@ -14,7 +14,7 @@ var enemy_list = []
 func _ready():
 	GameData.connect("enemy_destroy", _on_enemy_destroy)
 
-func _process(delta):
+func _process(_delta):
 	if end_timer.is_stopped():
 		timer.stop()
 		if enemy_list.is_empty():

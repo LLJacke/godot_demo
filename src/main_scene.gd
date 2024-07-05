@@ -15,8 +15,8 @@ func _ready():
 	player.position = Vector2(50, get_viewport_rect().size.y/2)
 	enemy_creator.position = Vector2(get_viewport_rect().size.x - 50, get_viewport_rect().size.y/2)
 
-func _process(delta):
-	var arr = attack_area.get_enemy_in_area()
+func _process(_delta):
+	#var _arr = attack_area.get_enemy_in_area()
 	#if arr.size() > 0:
 		#var dist = 9999999
 		#var target_enemy
