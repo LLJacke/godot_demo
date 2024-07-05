@@ -6,15 +6,14 @@ enum State {
 	DEAD,
 }
 
-const WALK_SPEED = -60
 
 var _state := State.WALKING
 
 @export var hp_limit = 100
 @export var score = 50
 @export var damage = 60
+@export var walk_speed = -60
 
-@onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @onready var sprite := $Sprite2D as Sprite2D
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 @onready var cur_hp = hp_limit
@@ -23,7 +22,7 @@ var _state := State.WALKING
 func _physics_process(_delta: float) -> void:
 	#motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	if _state == State.WALKING and velocity.is_zero_approx():
-		velocity.x = WALK_SPEED
+		velocity.x = walk_speed
 	elif _state == State.ATTACK:
 		velocity = Vector2.ZERO
 
@@ -31,9 +30,9 @@ func _physics_process(_delta: float) -> void:
 	#move_and_collide(velocity * delta)
 
 	if velocity.x > 0.0:
-		sprite.scale.x = 0.8
+		sprite.scale.x = abs(sprite.scale.x)
 	elif velocity.x < 0.0:
-		sprite.scale.x = -0.8
+		sprite.scale.x = -abs(sprite.scale.x)
 
 	var animation := get_new_animation()
 	if animation != animation_player.current_animation:
