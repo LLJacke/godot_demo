@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://brk55xpvaeift"]
+[gd_scene load_steps=11 format=3 uid="uid://brk55xpvaeift"]
 
 [ext_resource type="Script" path="res://src/main_scene.gd" id="1_44xnb"]
 [ext_resource type="PackedScene" uid="uid://dn8b7jnoa6ikg" path="res://resource/player/player.tscn" id="2_68s7c"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://src/DefendArea.gd" id="5_m2nfs"]
 [ext_resource type="PackedScene" uid="uid://dl0guil221unw" path="res://resource/ui/MainUI.tscn" id="6_hlquv"]
 [ext_resource type="PackedScene" uid="uid://hao7xm141322" path="res://resource/ui/ChooseBuff.tscn" id="6_tyl4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7ywv"]
+size = Vector2(1172, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10dya"]
 size = Vector2(1000, 1000)
@@ -17,6 +20,21 @@ size = Vector2(80, 1000)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_44xnb")
 shoot_radius = 1100
+
+[node name="Wall" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(586, 40)
+shape = SubResource("RectangleShape2D_n7ywv")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(0, 640)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(586, 40)
+shape = SubResource("RectangleShape2D_n7ywv")
 
 [node name="Player" parent="." instance=ExtResource("2_68s7c")]
 position = Vector2(37, 278)
