@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dysckovoyh3pk"
-path="res://.godot/imported/enemy.webp-b605f2f76c34dc5de12f120cedf185ca.ctex"
+path="res://.godot/imported/enemy.webp-8d527f55652248f553bc75443869172c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resource/enemy/enemy.webp"
-dest_files=["res://.godot/imported/enemy.webp-b605f2f76c34dc5de12f120cedf185ca.ctex"]
+source_file="res://resource/enemy/robot/enemy.webp"
+dest_files=["res://.godot/imported/enemy.webp-8d527f55652248f553bc75443869172c.ctex"]
 
 [params]
 

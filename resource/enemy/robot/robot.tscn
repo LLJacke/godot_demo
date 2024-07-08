@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dw1pavn2rbryf"]
 
-[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_s7kal"]
-[ext_resource type="Texture2D" uid="uid://dysckovoyh3pk" path="res://resource/enemy/enemy.webp" id="2_0i8aa"]
+[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_3gqbb"]
+[ext_resource type="Texture2D" uid="uid://dysckovoyh3pk" path="res://resource/enemy/robot/enemy.webp" id="2_wtmc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j7sb"]
 size = Vector2(86, 56)
@@ -159,10 +159,14 @@ _data = {
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
-script = ExtResource("1_s7kal")
+script = ExtResource("1_3gqbb")
+hp_limit = 300
+score = 150
+damage = 80
+walk_speed = -50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_0i8aa")
+texture = ExtResource("2_wtmc2")
 flip_h = true
 hframes = 8
 vframes = 2

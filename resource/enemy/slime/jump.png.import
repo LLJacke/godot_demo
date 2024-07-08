@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bslj4j05ucy1y"
-path="res://.godot/imported/pack.png-14f2ff192ab8411698f35e4146b100ae.ctex"
+uid="uid://cvgt4aot8nt33"
+path="res://.godot/imported/jump.png-701bf425fad4ae5a7c1a515a5bde968c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resource/enemy/slime/pack.png"
-dest_files=["res://.godot/imported/pack.png-14f2ff192ab8411698f35e4146b100ae.ctex"]
+source_file="res://resource/enemy/slime/jump.png"
+dest_files=["res://.godot/imported/jump.png-701bf425fad4ae5a7c1a515a5bde968c.ctex"]
 
 [params]
 
