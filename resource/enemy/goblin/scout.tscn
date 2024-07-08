@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw1pavn2rbryf"]
+[gd_scene load_steps=10 format=3 uid="uid://c1nr8lmaes206"]
 
-[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_3gqbb"]
-[ext_resource type="Texture2D" uid="uid://dysckovoyh3pk" path="res://resource/enemy/robot/enemy.webp" id="2_wtmc2"]
+[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_v8fo8"]
+[ext_resource type="Texture2D" uid="uid://cn436k0qicvch" path="res://resource/enemy/goblin/GoblinScout-Sheet.png" id="3_ij34x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j7sb"]
-size = Vector2(86, 56)
+size = Vector2(85, 91)
 
 [sub_resource type="Animation" id="Animation_q4355"]
 length = 0.001
@@ -23,31 +23,21 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/path = NodePath("Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(-1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_5jm4e"]
 resource_name = "attack"
 length = 2.0
+loop_mode = 1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,31 +45,19 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [9, 9, 10, 11, 12, 13]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -89,31 +67,33 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ythf4"]
 resource_name = "destroy"
-tracks/0/type = "value"
+length = 2.0
+step = 0.2
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 39, 40, 41, 42, 43, 44]
 }
 
 [sub_resource type="Animation" id="Animation_8jgds"]
@@ -133,17 +113,32 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_vtbwd"]
 resource_name = "walk"
+length = 1.4
+loop_mode = 1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15]
+"values": [Vector2(5, 0), Vector2(4, 0), Vector2(1, 0), Vector2(-9, 0), Vector2(-6, 0), Vector2(5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [27, 28, 29, 30, 31, 32, 27]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlt2p"]
@@ -155,26 +150,28 @@ _data = {
 "walk": SubResource("Animation_vtbwd")
 }
 
-[node name="Robot" type="CharacterBody2D"]
+[node name="Scout" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
-script = ExtResource("1_3gqbb")
-hp_limit = 300
-score = 150
+script = ExtResource("1_v8fo8")
+hp_limit = 150
+score = 80
 damage = 80
-walk_speed = -50
+walk_speed = -30
+metadata/_edit_vertical_guides_ = [-37.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_wtmc2")
-flip_h = true
-hframes = 8
-vframes = 2
+position = Vector2(-1, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ij34x")
+hframes = 9
+vframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(-1, 2)
+position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_2j7sb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

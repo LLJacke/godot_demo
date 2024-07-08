@@ -14,7 +14,7 @@ var _state := State.WALKING
 @export var damage = 60
 @export var walk_speed = -60
 
-@onready var sprite := $Sprite2D as Sprite2D
+@onready var sprite := $Sprite2D
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 @onready var cur_hp = hp_limit
 

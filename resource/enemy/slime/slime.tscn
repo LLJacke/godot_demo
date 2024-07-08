@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://3iq1n3n8fyja" path="res://resource/enemy/slime/die.png" id="4_srwbf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j7sb"]
-size = Vector2(45, 41)
+size = Vector2(45, 36.5)
 
 [sub_resource type="Animation" id="Animation_q4355"]
 length = 0.001
@@ -270,7 +270,7 @@ _data = {
 "walk": SubResource("Animation_vtbwd")
 }
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Slime" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
@@ -285,7 +285,7 @@ hframes = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(-2, 4)
+position = Vector2(-2, 6.25)
 shape = SubResource("RectangleShape2D_2j7sb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
