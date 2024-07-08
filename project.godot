@@ -21,6 +21,11 @@ GameData="*res://src/GameData.gd"
 BuffManager="*res://src/BuffManager.gd"
 PlayerInfo="*res://src/PlayerInfo.gd"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [input]
 
 click={
