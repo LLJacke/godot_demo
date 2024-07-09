@@ -56,12 +56,9 @@ _data = {
 "destroy": SubResource("Animation_4yef2")
 }
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Bullet" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-gravity_scale = 0.0
-max_contacts_reported = 1
-contact_monitor = true
 script = ExtResource("1_1fv14")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -17,7 +17,7 @@ func shoot(direction: Vector2 = Vector2(1,0)) -> bool:
 		return false
 	var bullet := BULLET_SCENE.instantiate() as Bullet
 	bullet.global_position = global_position
-	bullet.linear_velocity = direction * bullet_velocity
+	bullet.direction = direction
 
 	bullet.set_as_top_level(true)
 	add_child(bullet)
