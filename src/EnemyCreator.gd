@@ -33,7 +33,7 @@ func _process(_delta):
 
 func create_enemy():
 	var clazz = ENEMY_SCENE
-	if randf() < 0.3:
+	if randf() < 0.2:
 		clazz = ENEMY_SCENE_3
 	var enemy = clazz.instantiate() as EnemyBase
 	enemy.global_position = global_position

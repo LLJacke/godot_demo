@@ -1,6 +1,6 @@
 extends Node
 
-var init_damage = 40				# 子弹伤害
+var init_damage = 30				# 子弹伤害
 var init_shoot_speed = 100			# 射速
 var init_move_speed = 200			# 玩家移动速度
 var init_hp = 1000					# 玩家血量

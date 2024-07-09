@@ -18,8 +18,9 @@ func _ready():
 		btns.append(btn)
 		
 
-func set_buffs(buffs):
-	if buffs and buffs.size() == 3:
+func update_buffs():
+	var buffs = BuffManager.get_buff_list(BuffManager.max_buff_count)
+	if buffs and buffs.size() > 0:
 		for i in btns.size():
 			btns[i].text = BuffManager.get_buff_txt(buffs[i])
 			cur_buffs[i] = buffs[i]

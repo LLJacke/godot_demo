@@ -275,6 +275,7 @@ collision_layer = 2
 collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_4218m")
+hp_limit = 80
 damage = 40
 walk_speed = -30
 
