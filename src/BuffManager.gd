@@ -5,13 +5,15 @@ enum BUFF_TYPE {
 	ADD_DAMAGE = 1,
 	ADD_HP = 2,
 	MOVE_FAST = 3,
+	ADD_BULLET_HIT = 4,
 }
 
 const BUFF_TEXT = [
 	'射的快',
 	'加伤害',
 	'加血',
-	'跑得快'
+	'跑得快',
+	'子弹穿透+1'
 ]
 
 func get_random_buffs(num):
@@ -38,3 +40,5 @@ func gain_buff(buff):
 		PlayerInfo.hp += 200
 	elif buff == BUFF_TYPE.MOVE_FAST:
 		PlayerInfo.move_speed += 50
+	elif buff == BUFF_TYPE.ADD_BULLET_HIT:
+		PlayerInfo.bullet_max_hit += 1
