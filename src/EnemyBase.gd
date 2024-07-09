@@ -8,7 +8,7 @@ enum State {
 
 
 var _state := State.WALKING
-
+ 
 @export var hp_limit = 100
 @export var score = 50
 @export var damage = 60
