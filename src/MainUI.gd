@@ -37,6 +37,7 @@ func _on_change_hp(hp):
 func _on_btn_reset():
 	GameData.reset_data()
 	PlayerInfo.reset_data()
+	BuffManager.reset_data()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

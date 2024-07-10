@@ -5,6 +5,7 @@ signal change_hp
 signal show_buffs
 signal enemy_destroy
 signal game_win
+signal reset_game
 
 
 var level_list = [
@@ -25,6 +26,9 @@ func send_destroy_enemy(enemy):
 func send_game_win():
 	emit_signal("game_win")
 
+func send_reset_game():
+	emit_signal("reset_game")
+
 func check_score(score):
 	if player_level >= level_list.size(): return
 	if score >= level_list[player_level]:
@@ -33,3 +37,4 @@ func check_score(score):
 
 func reset_data():
 	player_level = 0
+	send_reset_game()

@@ -87,3 +87,6 @@ func gain_buff(buff):
 		PlayerInfo.move_speed += 50
 	elif buff == BUFF_TYPE.ADD_BULLET_HIT:
 		PlayerInfo.bullet_max_hit += 1
+
+func reset_data():
+	left_buff = BUFF_COUNT.duplicate()

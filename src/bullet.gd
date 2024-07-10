@@ -14,6 +14,7 @@ func destroy() -> void:
 
 
 func _on_body_entered(body: Node) -> void:
+	if hit_count <= 0: return		# 避免同时触发的情况
 	if body is EnemyBase:
 		(body as EnemyBase).change_hp(-PlayerInfo.damage)
 		
