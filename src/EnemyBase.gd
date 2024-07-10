@@ -64,6 +64,8 @@ func get_new_animation() -> StringName:
 
 func change_hp(diff) -> void:
 	cur_hp += diff
+	if diff < 0:
+		get_hit()
 	if cur_hp <= 0:
 		destroy()
 
@@ -73,3 +75,8 @@ func set_attack_state() -> void:
 
 func do_attack() -> void:
 	GameData.send_change_hp(-damage)
+
+func get_hit():
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.RED, 0.1)
+	tween.tween_property(self, "modulate", Color.WHITE, 0.1)
