@@ -32,6 +32,7 @@ func _on_change_hp(hp):
 	if PlayerInfo.hp <= 0:
 		get_tree().paused = true
 		lb_lose.visible = true
+		$mask.visible = true
 		btn_reset.visible = true
 
 func _on_btn_reset():
@@ -44,4 +45,5 @@ func _on_btn_reset():
 func _on_game_win():
 	get_tree().paused = true
 	lb_win.visible = true
+	$mask.visible = true
 	btn_reset.visible = true

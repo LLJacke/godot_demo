@@ -1,9 +1,6 @@
 class_name Player extends CharacterBody2D
 
 
-const JUMP_VELOCITY = -400.0
-const WALK_SPEED = 300.0
-
 @export var action_suffix := ""
 @export var shoot_radius = 400
 
@@ -13,8 +10,6 @@ const WALK_SPEED = 300.0
 var circle_shape := CircleShape2D.new()
 
 func _physics_process(_delta):
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left" + action_suffix, "move_right" + action_suffix) * PlayerInfo.move_speed
 	if direction:
 		velocity.y = direction

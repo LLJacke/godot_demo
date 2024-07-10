@@ -17,6 +17,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x0ai2")
 
+[node name="mask" type="ColorRect" parent="."]
+visible = false
+top_level = true
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.788235)
+
 [node name="lb_score" type="Label" parent="."]
 layout_mode = 0
 offset_left = 20.0
