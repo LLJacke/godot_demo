@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://m733c0qwl0hb"]
 
-[ext_resource type="Script" path="res://src/bullet.gd" id="1_1fv14"]
+[ext_resource type="Script" path="res://src/scene/bullet.gd" id="1_5aka7"]
 [ext_resource type="Texture2D" uid="uid://b4xn13gstq3e4" path="res://resource/player/bullet.webp" id="2_uga42"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_738u7"]
@@ -59,7 +59,7 @@ _data = {
 [node name="Bullet" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_1fv14")
+script = ExtResource("1_5aka7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_uga42")

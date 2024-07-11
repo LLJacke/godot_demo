@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c1nr8lmaes206"]
 
-[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_v8fo8"]
+[ext_resource type="Script" path="res://src/scene/EnemyBase.gd" id="1_16f3c"]
 [ext_resource type="Texture2D" uid="uid://cn436k0qicvch" path="res://resource/enemy/goblin/GoblinScout-Sheet.png" id="3_ij34x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2j7sb"]
@@ -153,7 +153,7 @@ _data = {
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
-script = ExtResource("1_v8fo8")
+script = ExtResource("1_16f3c")
 hp_limit = 150
 score = 80
 damage = 80

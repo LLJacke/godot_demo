@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://brk55xpvaeift"]
 
-[ext_resource type="Script" path="res://src/main_scene.gd" id="1_44xnb"]
+[ext_resource type="Script" path="res://src/scene/main_scene.gd" id="1_44xnb"]
 [ext_resource type="PackedScene" uid="uid://dn8b7jnoa6ikg" path="res://resource/player/player.tscn" id="2_68s7c"]
-[ext_resource type="Script" path="res://src/EnemyCreator.gd" id="3_cu30d"]
-[ext_resource type="Script" path="res://src/AttackArea.gd" id="4_3rg60"]
-[ext_resource type="Script" path="res://src/DefendArea.gd" id="5_m2nfs"]
+[ext_resource type="Script" path="res://src/scene/EnemyCreator.gd" id="3_cu30d"]
+[ext_resource type="Script" path="res://src/scene/AttackArea.gd" id="4_3rg60"]
+[ext_resource type="Script" path="res://src/scene/DefendArea.gd" id="5_m2nfs"]
 [ext_resource type="PackedScene" uid="uid://dl0guil221unw" path="res://resource/ui/MainUI.tscn" id="6_hlquv"]
 [ext_resource type="PackedScene" uid="uid://hao7xm141322" path="res://resource/ui/ChooseBuff.tscn" id="6_tyl4q"]
 

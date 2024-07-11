@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameData="*res://src/GameData.gd"
-BuffManager="*res://src/BuffManager.gd"
-PlayerInfo="*res://src/PlayerInfo.gd"
-EnemyManager="*res://src/EnemyManager.gd"
+GameData="*res://src/model/GameData.gd"
+BuffManager="*res://src/model/BuffManager.gd"
+PlayerInfo="*res://src/model/PlayerInfo.gd"
+EnemyManager="*res://src/model/EnemyManager.gd"
 
 [editor]
 

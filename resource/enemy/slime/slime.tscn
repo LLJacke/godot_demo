@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b5in73f6ot1lu"]
 
-[ext_resource type="Script" path="res://src/EnemyBase.gd" id="1_4218m"]
+[ext_resource type="Script" path="res://src/scene/EnemyBase.gd" id="1_qjwm6"]
 [ext_resource type="Texture2D" uid="uid://pxuc8h7gq0vy" path="res://resource/enemy/slime/walk.png" id="2_lx55m"]
 [ext_resource type="Texture2D" uid="uid://cvgt4aot8nt33" path="res://resource/enemy/slime/jump.png" id="3_ew0xf"]
 [ext_resource type="Texture2D" uid="uid://3iq1n3n8fyja" path="res://resource/enemy/slime/die.png" id="4_srwbf"]
@@ -274,7 +274,7 @@ _data = {
 collision_layer = 2
 collision_mask = 4
 motion_mode = 1
-script = ExtResource("1_4218m")
+script = ExtResource("1_qjwm6")
 hp_limit = 80
 damage = 40
 walk_speed = -30

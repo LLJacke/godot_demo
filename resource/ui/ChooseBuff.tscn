@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hao7xm141322"]
 
-[ext_resource type="Script" path="res://src/ChooseBuff.gd" id="1_xm55s"]
+[ext_resource type="Script" path="res://src/scene/ui/ChooseBuff.gd" id="1_xm55s"]
 
 [node name="ChooseBuff" type="Control"]
 top_level = true

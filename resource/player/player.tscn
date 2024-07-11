@@ -1,16 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn8b7jnoa6ikg"]
+[gd_scene load_steps=7 format=3 uid="uid://dn8b7jnoa6ikg"]
 
-[ext_resource type="Script" path="res://src/player.gd" id="1_q16ca"]
+[ext_resource type="Script" path="res://src/scene/player.gd" id="1_cgqju"]
 [ext_resource type="Texture2D" uid="uid://chr4236sup0m6" path="res://resource/player/robot.webp" id="2_a5g8a"]
-[ext_resource type="Script" path="res://src/Gun.gd" id="3_taha7"]
+[ext_resource type="Script" path="res://src/scene/Gun.gd" id="3_g3tij"]
 [ext_resource type="Texture2D" uid="uid://c65t5nniqgtuf" path="res://resource/player/gun.png" id="4_0urbh"]
+[ext_resource type="PackedScene" uid="uid://m733c0qwl0hb" path="res://resource/player/bullet.tscn" id="4_d3f5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvpja"]
 size = Vector2(38, 59)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
-script = ExtResource("1_q16ca")
+script = ExtResource("1_cgqju")
 shoot_radius = 1100
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,7 +22,8 @@ frame = 35
 
 [node name="Gun" type="Marker2D" parent="Sprite2D"]
 position = Vector2(16, -3)
-script = ExtResource("3_taha7")
+script = ExtResource("3_g3tij")
+bullet_scene = ExtResource("4_d3f5v")
 
 [node name="Cooldown" type="Timer" parent="Sprite2D/Gun"]
 wait_time = 0.8
@@ -29,14 +31,16 @@ one_shot = true
 autostart = true
 
 [node name="SndGun" type="Sprite2D" parent="."]
-position = Vector2(7, -34)
+position = Vector2(10, -31)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_0urbh")
 
-[node name="Gun" type="Marker2D" parent="SndGun"]
+[node name="Gun2" type="Marker2D" parent="SndGun"]
 position = Vector2(9, 0)
-script = ExtResource("3_taha7")
+script = ExtResource("3_g3tij")
+bullet_scene = ExtResource("4_d3f5v")
 
-[node name="Cooldown" type="Timer" parent="SndGun/Gun"]
+[node name="Cooldown" type="Timer" parent="SndGun/Gun2"]
 wait_time = 0.8
 one_shot = true
 autostart = true
