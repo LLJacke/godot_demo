@@ -15,18 +15,6 @@ func _ready():
 	player.position = Vector2(50, get_viewport_rect().size.y/2)
 	enemy_creator.position = Vector2(get_viewport_rect().size.x - 50, get_viewport_rect().size.y/2)
 
-func _process(_delta):
-	#var _arr = attack_area.get_enemy_in_area()
-	#if arr.size() > 0:
-		#var dist = 9999999
-		#var target_enemy
-		#for ene in arr:
-			#var pos = ene.global_position
-			#if pos.x - player.global_position.x < dist:
-				#dist = pos.x - player.global_position.x
-				#target_enemy = ene
-		#player.gun.shoot((target_enemy.global_position - player.global_position).normalized())
-	player.gun.shoot()
 
 func get_shoot_node(radius):
 	circle_shape.radius = radius

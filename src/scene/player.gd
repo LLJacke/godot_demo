@@ -6,8 +6,12 @@ class_name Player extends CharacterBody2D
 
 @onready var sprite := $Sprite2D as Sprite2D
 @onready var gun = sprite.get_node("Gun") as Gun
+@onready var weapons = [gun]
 
 var circle_shape := CircleShape2D.new()
+
+func _ready():
+	gun.fire()
 
 func _physics_process(_delta):
 	var direction = Input.get_axis("move_left" + action_suffix, "move_right" + action_suffix) * PlayerInfo.move_speed
@@ -15,7 +19,7 @@ func _physics_process(_delta):
 		velocity.y = direction
 	else:
 		velocity.y = move_toward(velocity.y, 0, PlayerInfo.move_speed)
-#
+
 	move_and_slide()
 	
 	#if Input.is_action_just_pressed("shoot" + action_suffix):
