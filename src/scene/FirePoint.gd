@@ -1,4 +1,4 @@
-class_name Gun extends Marker2D
+class_name FirePoint extends Marker2D
 
 var _timer : Timer
 var _speed = 100

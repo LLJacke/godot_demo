@@ -29,6 +29,9 @@ func send_game_win():
 func send_reset_game():
 	emit_signal("reset_game")
 
+func send_event():
+	emit_signal("")
+
 func check_score(score):
 	if player_level >= level_list.size(): return
 	if score >= level_list[player_level]:

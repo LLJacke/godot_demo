@@ -38,6 +38,7 @@ shape = SubResource("RectangleShape2D_n7ywv")
 
 [node name="Player" parent="." instance=ExtResource("2_68s7c")]
 position = Vector2(37, 278)
+action_suffix = null
 
 [node name="EnemyCreator" type="Node2D" parent="."]
 script = ExtResource("3_cu30d")

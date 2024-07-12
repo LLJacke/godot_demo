@@ -1,12 +1,17 @@
 class_name Player extends CharacterBody2D
 
+const WEAPON_SCENE = {
+	SND_GUN = preload("res://resource/player/snd_gun.tscn"),
+}
+
 
 @export var action_suffix := ""
 @export var shoot_radius = 400
 
 @onready var sprite := $Sprite2D as Sprite2D
-@onready var gun = sprite.get_node("Gun") as Gun
+@onready var gun = sprite.get_node("FirePoint") as FirePoint
 @onready var weapons = [gun]
+@onready var weapons_point = [get_node("weapon_1"), get_node("weapon_2")]
 
 var circle_shape := CircleShape2D.new()
 
@@ -24,8 +29,16 @@ func _physics_process(_delta):
 	
 	#if Input.is_action_just_pressed("shoot" + action_suffix):
 		#gun.shoot(sprite.scale.x)
-	pass
 	
+func add_weapon(wp_type):
+	if wp_type == 'snd_gun':
+		if weapons.size()-1 < weapons.size():
+			var new_wp = WEAPON_SCENE.SND_GUN.instantiate()
+			weapons_point[weapons.size()-1].add_child(new_wp)
+			var new_gun = new_wp.get_node("FirePoint") as FirePoint
+			weapons.append(new_gun)
+			new_gun.set_shoot_speed(80)
+			new_gun.fire()
 
 #func _process(delta):
 	#var arr = get_shoot_node(shoot_radius)
@@ -39,15 +52,15 @@ func _physics_process(_delta):
 				#target_enemy = ene.collider
 		#gun.shoot((target_enemy.global_position - global_position).normalized())
 
-func get_shoot_node(radius):
-	circle_shape.radius = radius
+# func get_shoot_node(radius):
+# 	circle_shape.radius = radius
 	
-	var p = PhysicsShapeQueryParameters2D.new()
-	p.shape = circle_shape
-	p.collide_with_bodies = true
-	p.exclude = [get_rid()]
-	p.collision_mask = 3
-	p.transform = Transform2D(0, global_position)
+# 	var p = PhysicsShapeQueryParameters2D.new()
+# 	p.shape = circle_shape
+# 	p.collide_with_bodies = true
+# 	p.exclude = [get_rid()]
+# 	p.collision_mask = 3
+# 	p.transform = Transform2D(0, global_position)
 	
-	var arr = get_world_2d().direct_space_state.intersect_shape(p)
-	return arr
+# 	var arr = get_world_2d().direct_space_state.intersect_shape(p)
+# 	return arr
