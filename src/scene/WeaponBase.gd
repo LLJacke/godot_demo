@@ -1,7 +1,8 @@
-class_name FirePoint extends Marker2D
+class_name WeaponBase extends Node2D
 
 var _timer : Timer
 var _speed = 100
+var _fire_point : Marker2D
 
 @export var bullet_scene : PackedScene
 
@@ -11,6 +12,8 @@ func _ready():
 	_timer.one_shot = true
 	_timer.timeout.connect(shoot)
 	add_child(_timer)
+	
+	_fire_point = find_child("FirePoint")
 
 
 func set_shoot_speed(speed):
@@ -26,7 +29,7 @@ func shoot(direction: Vector2 = Vector2(1,0)) -> bool:
 	if not _timer.is_stopped():
 		return false
 	var bullet := bullet_scene.instantiate() as Bullet
-	bullet.global_position = global_position
+	bullet.global_position = _fire_point.global_position
 	bullet.direction = direction
 	bullet.set_as_top_level(true)
 	add_child(bullet)
