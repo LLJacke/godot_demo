@@ -6,6 +6,7 @@ enum BUFF_TYPE {
 	ADD_HP,
 	MOVE_FAST,
 	ADD_BULLET_HIT,
+	ADD_TINY_GUN,
 }
 
 const BUFF_TEXT = {
@@ -13,7 +14,8 @@ const BUFF_TEXT = {
 	ADD_DAMAGE = '加伤害',
 	ADD_HP = 'HP+200',
 	MOVE_FAST = '跑得快',
-	ADD_BULLET_HIT = '子弹穿透+1'
+	ADD_BULLET_HIT = '子弹穿透+1',
+	ADD_TINY_GUN = '添加一个小枪作为副武器'
 }
 
 const BUFF_COUNT = {
@@ -21,7 +23,8 @@ const BUFF_COUNT = {
 	ADD_DAMAGE = 6,
 	ADD_HP = 10,
 	MOVE_FAST = 5,
-	ADD_BULLET_HIT = 3
+	ADD_BULLET_HIT = 3,
+	ADD_TINY_GUN = 2,
 }
 
 const BUFF_WEIGHT = {
@@ -29,7 +32,8 @@ const BUFF_WEIGHT = {
 	ADD_DAMAGE = 10,
 	ADD_HP = 20,
 	MOVE_FAST = 10,
-	ADD_BULLET_HIT = 5
+	ADD_BULLET_HIT = 5,
+	ADD_TINY_GUN = 50,
 }
 
 var left_buff = {}
@@ -87,6 +91,9 @@ func gain_buff(buff):
 		PlayerInfo.move_speed += 50
 	elif buff == BUFF_TYPE.ADD_BULLET_HIT:
 		PlayerInfo.bullet_max_hit += 1
+	elif buff == BUFF_TYPE.ADD_TINY_GUN:
+		if get_tree().has_user_signal("add_weapon"):
+			get_tree().emit_signal("add_weapon", "tiny_gun")
 
 func reset_data():
 	left_buff = BUFF_COUNT.duplicate()

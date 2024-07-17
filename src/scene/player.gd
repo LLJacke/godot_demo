@@ -1,15 +1,15 @@
 class_name Player extends CharacterBody2D
 
 const WEAPON_SCENE = {
-	SND_GUN = preload("res://resource/player/snd_gun.tscn"),
+	TINY_GUN = preload("res://resource/player/tiny_gun.tscn"),
 }
 
 
 @export var action_suffix := ""
 @export var shoot_radius = 400
 
-@onready var sprite := $Sprite2D as Sprite2D
-@onready var gun = sprite.get_node("FirePoint") as FirePoint
+@onready var sprite = $Sprite2D as Sprite2D
+@onready var gun = sprite.get_node("Gun") as WeaponBase
 @onready var weapons = [gun]
 @onready var weapons_point = [get_node("weapon_1"), get_node("weapon_2")]
 
@@ -17,6 +17,8 @@ var circle_shape := CircleShape2D.new()
 
 func _ready():
 	gun.fire()
+	get_tree().add_user_signal("add_weapon")
+	get_tree().connect("add_weapon", add_weapon)
 
 func _physics_process(_delta):
 	var direction = Input.get_axis("move_left" + action_suffix, "move_right" + action_suffix) * PlayerInfo.move_speed
@@ -31,14 +33,13 @@ func _physics_process(_delta):
 		#gun.shoot(sprite.scale.x)
 	
 func add_weapon(wp_type):
-	if wp_type == 'snd_gun':
+	if wp_type == 'tiny_gun':
 		if weapons.size()-1 < weapons.size():
-			var new_wp = WEAPON_SCENE.SND_GUN.instantiate()
+			var new_wp = WEAPON_SCENE.TINY_GUN.instantiate()
 			weapons_point[weapons.size()-1].add_child(new_wp)
-			var new_gun = new_wp.get_node("FirePoint") as FirePoint
-			weapons.append(new_gun)
-			new_gun.set_shoot_speed(80)
-			new_gun.fire()
+			weapons.append(new_wp)
+			new_wp.set_shoot_speed(80)
+			new_wp.fire()
 
 #func _process(delta):
 	#var arr = get_shoot_node(shoot_radius)
