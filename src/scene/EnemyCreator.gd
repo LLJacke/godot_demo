@@ -18,15 +18,15 @@ var enemy_list = []
 @onready var enemy_seq = EnemyManager.get_enemy_seq()
 
 func _ready():
-	GameData.connect("enemy_destroy", _on_enemy_destroy)
-	GameData.connect("reset_game", _on_reset_data)
+	EventManager.add_event("enemy_destroy", _on_enemy_destroy)
+	EventManager.add_event("reset_game", _on_reset_data)
 
 
 func _process(_delta):
 	if end_timer.is_stopped():
 		# timer.stop()
 		if enemy_list.is_empty():
-			GameData.send_game_win()
+			EventManager.send_event("game_win")
 	else:
 		# if not timer.is_stopped():
 		# 	return false

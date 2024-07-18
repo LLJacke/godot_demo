@@ -8,9 +8,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameData.connect("add_score", _on_add_score)
-	GameData.connect("change_hp", _on_change_hp)
-	GameData.connect("game_win", _on_game_win)
+	EventManager.add_event("add_score", _on_add_score)
+	EventManager.add_event("change_hp", _on_change_hp)
+	EventManager.add_event("game_win", _on_game_win)
 	
 
 func _process(_delta):
@@ -37,8 +37,6 @@ func _on_change_hp(hp):
 
 func _on_btn_reset():
 	GameData.reset_data()
-	PlayerInfo.reset_data()
-	BuffManager.reset_data()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
@@ -47,3 +45,4 @@ func _on_game_win():
 	lb_win.visible = true
 	$mask.visible = true
 	btn_reset.visible = true
+

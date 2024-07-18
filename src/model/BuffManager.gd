@@ -15,7 +15,7 @@ const BUFF_TEXT = {
 	ADD_HP = 'HP+200',
 	MOVE_FAST = '跑得快',
 	ADD_BULLET_HIT = '子弹穿透+1',
-	ADD_TINY_GUN = '添加一个小枪作为副武器'
+	ADD_TINY_GUN = '添加副武器：\n小枪'
 }
 
 const BUFF_COUNT = {
@@ -41,6 +41,8 @@ var max_buff_count = 3
 
 func _ready():
 	left_buff = BUFF_COUNT.duplicate()
+	
+	EventManager.add_event("reset_game", reset_data)
 
 func get_buff_list(num):
 	num = min(num, BUFF_TYPE.size())
@@ -92,8 +94,7 @@ func gain_buff(buff):
 	elif buff == BUFF_TYPE.ADD_BULLET_HIT:
 		PlayerInfo.bullet_max_hit += 1
 	elif buff == BUFF_TYPE.ADD_TINY_GUN:
-		if get_tree().has_user_signal("add_weapon"):
-			get_tree().emit_signal("add_weapon", "tiny_gun")
+		EventManager.send_event("add_weapon", "tiny_gun")
 
 func reset_data():
 	left_buff = BUFF_COUNT.duplicate()

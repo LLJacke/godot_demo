@@ -44,8 +44,8 @@ func destroy() -> void:
 	velocity = Vector2.ZERO
 	collision_layer = 0
 	collision_mask = 0
-	GameData.send_add_score(score)
-	GameData.send_destroy_enemy(self)
+	EventManager.send_event("add_score", score)
+	EventManager.send_event("enemy_destroy", self)
 
 
 func get_new_animation() -> StringName:
@@ -74,7 +74,7 @@ func set_attack_state() -> void:
 	_state = State.ATTACK
 
 func do_attack() -> void:
-	GameData.send_change_hp(-damage)
+	EventManager.send_event("change_hp", -damage)
 
 func get_hit():
 	var tween = create_tween()

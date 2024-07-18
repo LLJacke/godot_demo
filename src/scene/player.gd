@@ -17,8 +17,8 @@ var circle_shape := CircleShape2D.new()
 
 func _ready():
 	gun.fire()
-	get_tree().add_user_signal("add_weapon")
-	get_tree().connect("add_weapon", add_weapon)
+	
+	EventManager.add_event("add_weapon", add_weapon)
 
 func _physics_process(_delta):
 	var direction = Input.get_axis("move_left" + action_suffix, "move_right" + action_suffix) * PlayerInfo.move_speed

@@ -14,6 +14,7 @@ func _ready():
 	add_child(_timer)
 	
 	_fire_point = find_child("FirePoint")
+	assert(_fire_point, "FirePoint is not exist.")
 
 
 func set_shoot_speed(speed):
@@ -28,6 +29,7 @@ func fire():
 func shoot(direction: Vector2 = Vector2(1,0)) -> bool:
 	if not _timer.is_stopped():
 		return false
+	
 	var bullet := bullet_scene.instantiate() as Bullet
 	bullet.global_position = _fire_point.global_position
 	bullet.direction = direction

@@ -14,6 +14,9 @@ var score = 0
 @onready var hp = init_hp
 @onready var bullet_max_hit = init_bullet_max_hit
 
+func _ready():
+	EventManager.add_event("reset_game", reset_data)
+
 func reset_data():
 	damage = init_damage
 	shoot_speed = init_shoot_speed

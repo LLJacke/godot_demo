@@ -10,7 +10,7 @@ extends Node2D
 var circle_shape := CircleShape2D.new()
 
 func _ready():
-	GameData.connect("show_buffs", _on_show_buffs)
+	EventManager.add_event("show_buffs", _on_show_buffs)
 	
 	player.position = Vector2(50, get_viewport_rect().size.y/2)
 	enemy_creator.position = Vector2(get_viewport_rect().size.x - 50, get_viewport_rect().size.y/2)
