@@ -1,16 +1,16 @@
 extends Node
 
-enum BUFF_TYPE {
-	SHOOT_FAST,
-	ADD_DAMAGE,
-	ADD_HP,
-	MOVE_FAST,
-	ADD_BULLET_HIT,
-	ADD_TINY_GUN,
-}
+#enum BUFF_TYPE {
+	#SHOOT_FAST,
+	#ADD_DAMAGE,
+	#ADD_HP,
+	#MOVE_FAST,
+	#ADD_BULLET_HIT,
+	#ADD_TINY_GUN,
+#}
 
 const BUFF_TEXT = {
-	SHOOT_FAST = '射的快',
+	SHOOT_FAST = '主武器射速加快50%',
 	ADD_DAMAGE = '加伤害',
 	ADD_HP = 'HP+200',
 	MOVE_FAST = '跑得快',
@@ -24,7 +24,7 @@ const BUFF_COUNT = {
 	ADD_HP = 10,
 	MOVE_FAST = 5,
 	ADD_BULLET_HIT = 3,
-	ADD_TINY_GUN = 2,
+	ADD_TINY_GUN = 1,
 }
 
 const BUFF_WEIGHT = {
@@ -39,12 +39,17 @@ const BUFF_WEIGHT = {
 var left_buff = {}
 var max_buff_count = 3
 
+const buff_data = preload("res://src/data/buff_data.gd")
+
+const BUFF_TYPE = buff_data.BUFF_TYPE
+const BUFF_DATA = buff_data.BUFF_DATA
+
 func _ready():
 	left_buff = BUFF_COUNT.duplicate()
 	
 	EventManager.add_event("reset_game", reset_data)
 
-func get_buff_list(num):
+func get_buff_list(num : int):
 	num = min(num, BUFF_TYPE.size())
 	
 	var res = []
@@ -83,18 +88,19 @@ func gain_buff(buff):
 	left_buff[buff] -= 1		# 扣除剩余buff个数
 	buff = BUFF_TYPE[buff]
 	
-	if buff == BUFF_TYPE.SHOOT_FAST:
-		PlayerInfo.shoot_speed += 35
-	elif buff == BUFF_TYPE.ADD_DAMAGE:
-		PlayerInfo.damage += 30
+	if buff == BUFF_TYPE.MAIN_SHOOT_FAST:
+		EventManager.send_event("add_buff", buff)
+	elif buff == BUFF_TYPE.MAIN_ADD_DAMAGE:
+		EventManager.send_event("add_buff", buff)
 	elif buff == BUFF_TYPE.ADD_HP:
-		PlayerInfo.hp += 200
+		PlayerInfo.hp += 500
 	elif buff == BUFF_TYPE.MOVE_FAST:
 		PlayerInfo.move_speed += 50
-	elif buff == BUFF_TYPE.ADD_BULLET_HIT:
-		PlayerInfo.bullet_max_hit += 1
+	elif buff == BUFF_TYPE.MAIN_ADD_BULLET_HIT:
+		EventManager.send_event("add_buff", buff)
 	elif buff == BUFF_TYPE.ADD_TINY_GUN:
 		EventManager.send_event("add_weapon", "tiny_gun")
 
 func reset_data():
+	
 	left_buff = BUFF_COUNT.duplicate()
