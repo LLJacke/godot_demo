@@ -15,7 +15,7 @@ const BUFF_TEXT = {
 	ADD_HP = 'HP+200',
 	MOVE_FAST = '跑得快',
 	ADD_BULLET_HIT = '子弹穿透+1',
-	ADD_TINY_GUN = '添加副武器：\n小枪'
+	ADD_TINY_GUN = '添加副武器\n小枪'
 }
 
 const BUFF_COUNT = {
