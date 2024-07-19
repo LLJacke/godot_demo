@@ -68,6 +68,7 @@ grow_vertical = 2
 position = Vector2(37, 278)
 
 [node name="EnemyCreator" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("3_cu30d")
 
 [node name="Cooldown" type="Timer" parent="EnemyCreator"]

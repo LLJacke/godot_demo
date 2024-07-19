@@ -47,13 +47,12 @@ func create_enemy(tp):
 	var scene = EnemyManager.get_enemy_scene(tp)
 	if scene:
 		var enemy = scene.instantiate() as EnemyBase
-		enemy.global_position = global_position
+		#enemy.global_position = global_position
 		enemy.global_position.y = randf_range(100, screen_size.y - 30)
-		#enemy.linear_velocity = Vector2(-1 * ENEMY_VELOCITY, 0.0)
 		enemy_list.append(enemy)
 
 		#enemy.set_as_top_level(true)
-		get_parent().add_child(enemy)
+		add_child(enemy)
 	
 	
 
