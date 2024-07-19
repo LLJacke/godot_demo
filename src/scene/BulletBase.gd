@@ -7,8 +7,8 @@ var damage = 0
 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 
-func _ready():
-	hit_count = PlayerInfo.bullet_max_hit
+#func _ready():
+	#hit_count = PlayerInfo.bullet_max_hit
 
 func destroy() -> void:
 	queue_free()
