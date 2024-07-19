@@ -3,7 +3,7 @@ extends Node
 var init_move_speed = 200			# 玩家移动速度
 var init_hp = 1000					# 玩家血量
 
-var score = 1000
+var score = 0
 
 @onready var move_speed = init_move_speed
 @onready var hp = init_hp

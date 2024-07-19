@@ -1,28 +1,8 @@
 extends Node
 
-var seq_config = [
-	{
-		during = 20,
-		list = {
-			slime = 10,
-			goblin_scout = 5
-		}
-	},
-	{
-		during = 60,
-		list = {
-			slime = 120,
-			goblin_scout = 50
-		}
-	},
-	{
-		during = 100,
-		list = {
-			slime = 200,
-			goblin_scout = 200
-		}
-	},
-]
+const config_file = preload("res://src/data/enemy_create_config.gd")
+
+var SEQ_CONFIG = config_file.NORMAL_CONFIG_1
 
 const ENEMY_SCENE = {
 	slime = preload("res://resource/enemy/slime/slime.tscn"),
@@ -38,7 +18,7 @@ func _ready():
 func create_random_seq():
 	enemy_seq = []
 	var base_time = 0
-	for config in seq_config:
+	for config in SEQ_CONFIG:
 		var seq = []
 		for en in config.list:
 			for i in config.list[en]:
