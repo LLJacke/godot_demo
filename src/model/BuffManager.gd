@@ -69,18 +69,14 @@ func gain_buff(buff):
 	if not BUFF_TYPE.find_key(buff): return false
 	cur_buff[buff] += 1		# 扣除剩余buff个数
 	
-	if buff == BUFF_TYPE.MAIN_SHOOT_FAST:
-		EventManager.send_event("add_buff", buff)
-	elif buff == BUFF_TYPE.MAIN_ADD_DAMAGE:
-		EventManager.send_event("add_buff", buff)
-	elif buff == BUFF_TYPE.ADD_HP:
+	if buff == BUFF_TYPE.ADD_HP:
 		PlayerInfo.hp += 500
 	elif buff == BUFF_TYPE.MOVE_FAST:
 		PlayerInfo.move_speed += 50
-	elif buff == BUFF_TYPE.MAIN_ADD_BULLET_HIT:
-		EventManager.send_event("add_buff", buff)
 	elif buff == BUFF_TYPE.ADD_TINY_GUN:
 		EventManager.send_event("add_weapon", "tiny_gun")
+	else:
+		EventManager.send_event("add_buff", buff)
 
 func reset_data():
 	for tp in cur_buff:

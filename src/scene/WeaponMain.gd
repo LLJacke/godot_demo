@@ -7,4 +7,3 @@ func gain_buff(tp):
 		set_shoot_speed(_speed * 1.5)
 	elif tp == BuffManager.BUFF_TYPE.MAIN_ADD_BULLET_HIT:
 		_hit_count += 1
-		print()

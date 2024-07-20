@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxruhi8mlht0j"]
 
 [ext_resource type="Texture2D" uid="uid://c65t5nniqgtuf" path="res://resource/player/gun.png" id="1_2dswm"]
-[ext_resource type="Script" path="res://src/scene/WeaponBase.gd" id="1_7tkbv"]
+[ext_resource type="Script" path="res://src/scene/WeaponTinyGun.gd" id="1_o5g7n"]
 [ext_resource type="PackedScene" uid="uid://m733c0qwl0hb" path="res://resource/player/bullet.tscn" id="3_f617p"]
 
 [node name="tiny_gun" type="Node2D"]
-script = ExtResource("1_7tkbv")
+script = ExtResource("1_o5g7n")
 bullet_scene = ExtResource("3_f617p")
 
 [node name="tiny_gun" type="Sprite2D" parent="."]
