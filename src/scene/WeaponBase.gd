@@ -37,8 +37,7 @@ func shoot(direction: Vector2 = Vector2(1,0)) -> bool:
 	var bullet := bullet_scene.instantiate() as BulletBase
 	bullet.global_position = _fire_point.global_position
 	bullet.direction = direction
-	bullet.damage = _damage
-	bullet.hit_count = _hit_count
+	set_bullet_data(bullet)
 	bullet.set_as_top_level(true)
 	add_child(bullet)
 
@@ -49,6 +48,10 @@ func shoot(direction: Vector2 = Vector2(1,0)) -> bool:
 func set_damage(dam):
 	_damage = dam
 
+func set_bullet_data(bullet):
+	bullet.damage = _damage
+	bullet.hit_count = _hit_count
+	
 
 func gain_buff(_tp):
 	pass

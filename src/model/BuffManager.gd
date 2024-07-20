@@ -15,6 +15,8 @@ func _ready():
 	
 	EventManager.add_event("reset_game", reset_data)
 
+# 获取buff列表
+# num ： 获取buff数量
 func get_buff_list(num : int):
 	var enable_buffs = []
 	for tp in BUFF_DATA:
@@ -64,6 +66,7 @@ func random_buff(enable_list : Array, exclude_list : Array):
 
 func get_buff_txt(buff):
 	return BUFF_DATA[buff].txt
+
 
 func gain_buff(buff):
 	if not BUFF_TYPE.find_key(buff): return false

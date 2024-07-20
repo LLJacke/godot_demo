@@ -15,6 +15,7 @@ var enemy_seq = []
 func _ready():
 	create_random_seq()
 
+# 根据配置随机创建enemy生成时间序列
 func create_random_seq():
 	enemy_seq = []
 	var base_time = 0

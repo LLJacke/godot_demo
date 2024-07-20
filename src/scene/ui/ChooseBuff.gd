@@ -18,6 +18,7 @@ func _ready():
 		btns.append(btn)
 		
 
+# 刷新buff列表，暂未实现设置动态buff数量
 func update_buffs():
 	var buffs = BuffManager.get_buff_list(BuffManager.max_buff_count)
 	if buffs and buffs.size() > 0:

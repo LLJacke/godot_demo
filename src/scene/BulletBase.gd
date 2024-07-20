@@ -7,9 +7,6 @@ var damage = 0
 
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 
-#func _ready():
-	#hit_count = PlayerInfo.bullet_max_hit
-
 func destroy() -> void:
 	queue_free()
 
@@ -30,4 +27,5 @@ func _on_body_entered(body: Node) -> void:
 
 func _physics_process(delta):
 	position += speed * direction * delta
+	print(transform)
 
