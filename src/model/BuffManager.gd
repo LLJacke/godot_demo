@@ -2,7 +2,6 @@ extends Node
 
 
 var cur_buff = {}
-# var left_buff = {}
 var max_buff_count = 3
 
 const buff_data = preload("res://src/data/buff_data.gd")

@@ -18,12 +18,13 @@ func _ready():
 func create_random_seq():
 	enemy_seq = []
 	var base_time = 0
-	for config in SEQ_CONFIG:
+	for config : Dictionary in SEQ_CONFIG:
 		var seq = []
-		for en in config.list:
-			for i in config.list[en]:
-				seq.append({tp = en, time = base_time + randf_range(0, config.during)})
-		seq.sort_custom(func (a, b): if a.time < b.time: return true else: return false)
+		if config.has("list"):
+			for en in config.list:
+				for i in config.list[en]:
+					seq.append({tp = en, time = base_time + randf_range(0, config.during)})
+			seq.sort_custom(func (a, b): if a.time < b.time: return true else: return false)
 
 		enemy_seq.append_array(seq)
 		base_time += config.during
