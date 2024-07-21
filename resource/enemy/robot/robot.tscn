@@ -163,7 +163,7 @@ script = ExtResource("1_o225k")
 hp_limit = 300
 score = 150
 damage = 80
-walk_speed = -50
+walk_speed = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_wtmc2")

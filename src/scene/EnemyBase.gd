@@ -12,7 +12,7 @@ var _state := State.WALKING
 @export var hp_limit = 100
 @export var score = 50
 @export var damage = 60
-@export var walk_speed = -60
+@export var walk_speed = 60
 
 @onready var sprite := $Sprite2D
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
@@ -22,7 +22,7 @@ var _state := State.WALKING
 func _physics_process(_delta: float) -> void:
 	#motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	if _state == State.WALKING and velocity.is_zero_approx():
-		velocity.x = walk_speed
+		velocity.x = -walk_speed
 	elif _state == State.ATTACK:
 		velocity = Vector2.ZERO
 

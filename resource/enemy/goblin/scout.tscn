@@ -157,7 +157,7 @@ script = ExtResource("1_16f3c")
 hp_limit = 150
 score = 80
 damage = 80
-walk_speed = -30
+walk_speed = 30
 metadata/_edit_vertical_guides_ = [-37.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -277,7 +277,7 @@ motion_mode = 1
 script = ExtResource("1_qjwm6")
 hp_limit = 80
 damage = 40
-walk_speed = -30
+walk_speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_lx55m")
