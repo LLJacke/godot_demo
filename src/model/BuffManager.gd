@@ -78,6 +78,8 @@ func gain_buff(buff):
 		PlayerInfo.move_speed += 50
 	elif buff == BUFF_TYPE.ADD_TINY_GUN:
 		EventManager.send_event("add_weapon", "tiny_gun")
+	elif buff == BUFF_TYPE.ADD_ROCKET:
+		EventManager.send_event("add_weapon", "rocket")
 	else:
 		EventManager.send_event("add_buff", buff)
 

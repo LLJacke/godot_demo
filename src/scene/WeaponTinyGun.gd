@@ -1,10 +1,5 @@
 extends WeaponBase
 
-var max_damage = 500
-var min_damage = 200
-var max_range = 200
-var min_range = 50
-
 func gain_buff(tp):
 	if tp == BuffManager.BUFF_TYPE.TINY_GUN_ADD_DAMAGE:
 		_damage *= 1.5

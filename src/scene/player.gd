@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 const WEAPON_SCENE = {
 	TINY_GUN = preload("res://resource/player/tiny_gun.tscn"),
+	ROCKET = preload("res://resource/player/rocket.tscn"),
 }
 
 
@@ -33,12 +34,18 @@ func _physics_process(_delta):
 		#gun.shoot(sprite.scale.x)
 	
 func add_weapon(wp_type):
-	if wp_type == 'tiny_gun':
-		if weapons.size()-1 < weapons.size():
+	if weapons.size()-1 < weapons_point.size():
+		if wp_type == 'tiny_gun':
 			var new_wp = WEAPON_SCENE.TINY_GUN.instantiate()
 			weapons_point[weapons.size()-1].add_child(new_wp)
 			weapons.append(new_wp)
 			new_wp.set_shoot_speed(80)
+			new_wp.fire()
+		elif wp_type == 'rocket':
+			var new_wp = WEAPON_SCENE.ROCKET.instantiate()
+			weapons_point[weapons.size()-1].add_child(new_wp)
+			weapons.append(new_wp)
+			new_wp.set_shoot_speed(40)
 			new_wp.fire()
 
 #func _process(delta):

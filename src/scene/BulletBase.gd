@@ -27,5 +27,4 @@ func _on_body_entered(body: Node) -> void:
 
 func _physics_process(delta):
 	position += speed * direction * delta
-	print(transform)
 

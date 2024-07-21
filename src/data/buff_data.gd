@@ -12,6 +12,8 @@ enum BUFF_TYPE {
 	TINY_GUN_ADD_DAMAGE,
 	TINY_GUN_SHOOT_FAST,
 	TINY_GUN_ADD_HIT,
+	
+	ADD_ROCKET,
 }
 
 const BUFF_DATA = {
@@ -53,24 +55,30 @@ const BUFF_DATA = {
 		precondition = []
 	},
 	BUFF_TYPE.TINY_GUN_ADD_DAMAGE : {
-		type = BUFF_TYPE.ADD_TINY_GUN,
+		type = BUFF_TYPE.TINY_GUN_ADD_DAMAGE,
 		txt = '小枪伤害 + 50%',
-		count = 1,
-		weight = 50,
+		count = 5,
+		weight = 10,
 		precondition = [BUFF_TYPE.ADD_TINY_GUN]
 	},
 	BUFF_TYPE.TINY_GUN_SHOOT_FAST : {
-		type = BUFF_TYPE.ADD_TINY_GUN,
+		type = BUFF_TYPE.TINY_GUN_SHOOT_FAST,
 		txt = '小枪射速 + 50%',
-		count = 1,
-		weight = 50,
+		count = 5,
+		weight = 10,
 		precondition = [BUFF_TYPE.ADD_TINY_GUN]
 	},
 	BUFF_TYPE.TINY_GUN_ADD_HIT : {
-		type = BUFF_TYPE.ADD_TINY_GUN,
+		type = BUFF_TYPE.TINY_GUN_ADD_HIT,
 		txt = '小枪穿透 + 1',
+		count = 2,
+		weight = 5,
+		precondition = [BUFF_TYPE.ADD_TINY_GUN]
+	},
+	BUFF_TYPE.ADD_ROCKET : {
+		type = BUFF_TYPE.ADD_ROCKET,
+		txt = '添加副武器\n火箭弹',
 		count = 1,
 		weight = 50,
-		precondition = [BUFF_TYPE.ADD_TINY_GUN]
 	},
 }
