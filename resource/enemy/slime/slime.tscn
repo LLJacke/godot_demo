@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5in73f6ot1lu"]
+[gd_scene load_steps=13 format=3 uid="uid://b5in73f6ot1lu"]
 
 [ext_resource type="Script" path="res://src/scene/EnemyBase.gd" id="1_qjwm6"]
 [ext_resource type="Texture2D" uid="uid://pxuc8h7gq0vy" path="res://resource/enemy/slime/walk.png" id="2_lx55m"]
@@ -270,6 +270,9 @@ _data = {
 "walk": SubResource("Animation_vtbwd")
 }
 
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_no5jq"]
+length = 128.0
+
 [node name="Slime" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 4
@@ -293,3 +296,11 @@ shape = SubResource("RectangleShape2D_2j7sb")
 libraries = {
 "": SubResource("AnimationLibrary_qlt2p")
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("SeparationRayShape2D_no5jq")
